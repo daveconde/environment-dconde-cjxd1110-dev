@@ -1,39 +1,83 @@
 autoUpdate:
   enabled: false
   schedule: ""
+bootConfigURL: https://github.com/cloudbees/cloudbees-jenkins-x-boot-config.git
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: true
-  project: ""
   azure: {}
+  clusterName: dconde-cjxd1110
+  devEnvApprovers:
+  - daveconde
+  environmentGitOwner: daveconde
+  environmentGitPublic: true
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: apps-dev-229310
   provider: gke
-  zone: ""
-gitops: true
+  registry: gcr.io
+  zone: europe-west1-b
 environments:
-  - key: dev
-  - key: staging
-  - key: production
+- ingress:
+    domain: 34.76.48.198.nip.io
+    externalDNS: false
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  repository: environment-dconde-cjxd1110-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-dconde-cjxd1110-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-dconde-cjxd1110-production
+gitops: true
 ingress:
-  domain: ""
+  domain: 34.76.48.198.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
     production: false
 kaniko: true
+repository: nexus
 secretStorage: vault
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
     enabled: true
-    url: ""
+    url: gs://dconde-cjxd1110-logs-bf1bdf89-d74a-4267-981e-7118636996
   reports:
     enabled: true
-    url: ""
+    url: gs://dconde-cjxd1110-reports-247e77e4-a388-4541-88e5-a3bd8ee
   repository:
     enabled: true
-    url: ""
+    url: gs://dconde-cjxd1110-repository-af7d8195-365c-4f61-a11d-697f
+vault: {}
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: 2.1.46+cjxd.10
+  ref: v0.0.35
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
 webhook: lighthouse
