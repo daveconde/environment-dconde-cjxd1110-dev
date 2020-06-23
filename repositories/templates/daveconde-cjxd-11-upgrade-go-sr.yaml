@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: daveconde
+    provider: github
+    repository: cjxd-11-upgrade-go
+  name: daveconde-cjxd-11-upgrade-go
+spec:
+  description: Imported application for daveconde/cjxd-11-upgrade-go
+  httpCloneURL: https://github.com/daveconde/cjxd-11-upgrade-go.git
+  org: daveconde
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: cjxd-11-upgrade-go
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/daveconde/cjxd-11-upgrade-go.git
